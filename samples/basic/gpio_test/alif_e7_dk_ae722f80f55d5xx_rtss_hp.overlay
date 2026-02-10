@@ -1,0 +1,22 @@
+&gpio13 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_gpio13>;
+};
+
+/ {
+	aliases {
+		test-led = &test_gpio;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+
+		test_gpio: test_led {
+			//gpios = <&gpio13 7 GPIO_ACTIVE_HIGH>; // OK
+			gpios = <&gpio13 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // NOK
+			// gpios = <&gpio13 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // NOK
+			label = "GPIO13_PIN7";
+		};
+	};
+};
