@@ -1588,6 +1588,11 @@
 		status          = "disabled";
 	};
 
+	gpio_input: gpio_input {
+		compatible      = "gpio-leds";
+		status          = "disabled";
+	};
+
 	i2s0: i2s0@49014000 {
 		compatible = "snps,designware-i2s";
 		clock-frequency = <76800000>;
