@@ -480,14 +480,6 @@ static void i2c_dw_isr(const struct device *port)
 				}
 #endif
 			}
-
-			/* FIFO needs to be drained here so we don't miss the next interrupt */
-			do {
-				data = i2c_dw_read_byte_non_blocking(port);
-				if (slave_cb->write_received) {
-					slave_cb->write_received(dw->slave_cfg, data);
-				}
-			} while (test_bit_status_rfne(reg_base));
 		}
 
 		if (intr_stat.bits.stop_det) {
