@@ -14,7 +14,6 @@ boards:
     append:
       EXTRA_DTC_OVERLAY_FILE: alif_dk.overlay
 
-boards:
   /alif_(e3|e4|e7|e8)_dk/.*/rtss_(he|hp)/:
     append:
       EXTRA_DTC_OVERLAY_FILE: alif_dk.overlay
