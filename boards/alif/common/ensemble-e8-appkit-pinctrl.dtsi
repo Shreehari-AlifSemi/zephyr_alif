@@ -1002,9 +1002,9 @@
 	};
 	pinctrl_can0:pinctrl_can0 {
 		group0 {
-			pinmux = <PIN_P0_4__CAN_RXD_B>,
-				 <PIN_P0_5__CAN_TXD_B>,
-				 <PIN_P0_6__CAN_STBY_B>;
+			pinmux = <PIN_P12_4__CAN_RXD_C>,
+				 <PIN_P12_5__CAN_TXD_C>,
+				 <PIN_P12_6__CAN_STBY_C>;
 			read-enable = <0x1>;
 		};
 	};

@@ -261,9 +261,9 @@
 
 	pinctrl_can1: pinctrl_can1 {
 		group0 {
-			pinmux = <PIN_P1_3__CAN1_RXD_A>,
-			<PIN_P1_4__CAN1_TXD_A>,
-			<PIN_P1_5__CAN1_STBY_A>;
+			pinmux = <PIN_P8_5__CAN1_RXD_B>,
+			<PIN_P8_6__CAN1_TXD_B>,
+			<PIN_P8_7__CAN1_STBY_B>;
 			read-enable = < 0x1 >;
 		};
 	};

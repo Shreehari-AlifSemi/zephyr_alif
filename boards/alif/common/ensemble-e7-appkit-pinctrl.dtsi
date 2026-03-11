@@ -4,6 +4,8 @@
  */
 #include <dt-bindings/pinctrl/ensemble-pinctrl.h>
 
+/delete-node/ &can0;
+
 &pinctrl {
 	pinctrl_uart4: pinctrl_uart4 {
 		group1 {
@@ -240,15 +242,6 @@
 		group0 {
 			pinmux = <PIN_P7_6__I3C_SDA_D>,
 				 <PIN_P7_7__I3C_SCL_D>;
-			read-enable = <0x1>;
-		};
-	};
-
-	pinctrl_can0: pinctrl_can0 {
-		group0 {
-			pinmux = <PIN_P7_0__CAN_RXD_A>,
-				<PIN_P7_1__CAN_TXD_A>,
-				<PIN_P7_3__CAN_STBY_A>;
 			read-enable = <0x1>;
 		};
 	};
