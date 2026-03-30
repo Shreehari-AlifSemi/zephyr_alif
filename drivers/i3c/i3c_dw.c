@@ -900,6 +900,7 @@ static int dw_i3c_i2c_transfer(const struct device *dev, struct i3c_i2c_device_d
 	struct dw_i3c_xfer *xfer = &data->xfer;
 	int32_t ret, i, pos, nrxwords = 0, ntxwords = 0;
 	uint32_t present_state;
+	volatile bool act_dev_flag;
 
 	present_state = sys_read32(config->regs + PRESENT_STATE);
 	if (!(present_state & PRESENT_STATE_CURRENT_MASTER)) {
@@ -914,6 +915,10 @@ static int dw_i3c_i2c_transfer(const struct device *dev, struct i3c_i2c_device_d
 	if (pos < 0) {
 		LOG_ERR("%s: Invalid slave device", dev->name);
 		return -EINVAL;
+	}
+
+	if (target->addr == 0x69) {
+	    act_dev_flag = true;
 	}
 
 	for (i = 0; i < num_msgs; i++) {
@@ -989,6 +994,9 @@ static int dw_i3c_i2c_transfer(const struct device *dev, struct i3c_i2c_device_d
 	ret = xfer->ret;
 
 error:
+	if (ret == (-11)) {
+		LOG_ERR("failed for target: %d\n", target->addr);
+	}
 	k_mutex_unlock(&data->mt);
 
 	return ret;

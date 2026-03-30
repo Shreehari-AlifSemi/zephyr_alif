@@ -1,0 +1,10 @@
+&i3c0 {
+	status = "okay";
+/*
+	bmi323:bmi323@69 {
+		compatible = "bosch,bmi323";
+		reg = <0x69 0x0 0x0>;
+		assigned-address = <0x69>;
+	};
+	*/
+};
